@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+Main page
+
+
+<nav id="menu"><ul>
+{% for p in pages %}
+<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+{% endfor %}
+
+{% for cat, null in categories %}
+<li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+{% endfor %}
+</ul></nav>
+
+{% endblock content %}

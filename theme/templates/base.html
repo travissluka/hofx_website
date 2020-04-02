@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+<head>
+  {% block head %}
+    <meta charset="utf-8">  
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css" />
+    <title>
+      {% block title %}{{ SITENAME }}{% if SITESUBTITLE and SHOW_SITESUBTITLE_IN_HTML %} - {{ SITESUBTITLE }}{% endif %}{% endblock title %}
+    </title>
+
+
+  {% endblock %}
+</head>
+
+<body class="avenir ma0 bg-white">
+  
+  {% block header %}
+    {% include "partials/site-header.html" %}
+  {% endblock header %}
+
+  <main class="pb4" role="main">
+    {% block content %}
+      insert content here 
+    {% endblock content %}
+  </main>
+
+  {% block footer %}
+    {% include "partials/site-footer.html" %}
+  {% endblock footer %}
+</body>
+</html>
