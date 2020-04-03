@@ -23,9 +23,13 @@
   {% endblock header %}
 
   <main class="pb4" role="main">
-    {% block content %}
-      insert content here 
-    {% endblock content %}
+    <div class="flex-1 flex-wrap mt2 w-100 center">
+      <article class="center cf pv4 ph3 ph4-ns mw9">
+        {% block content %}
+          insert content here 
+        {% endblock content %}
+      </article>
+    </div>
   </main>
 
   {% block footer %}

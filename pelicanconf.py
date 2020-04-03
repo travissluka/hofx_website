@@ -6,11 +6,11 @@ from datetime import datetime, timezone
 AUTHOR = 'JCSDA'
 SITENAME = 'JCSDA Real-Time Observation Monitoring'
 SITEURL = ''
+TIMEZONE = 'UTC'
+CURRENTDATE=datetime.now(timezone.utc)
 
 PATH = 'content'
 
-TIMEZONE = 'UTC'
-CURRENTDATE=datetime.now(timezone.utc)
 
 DEFAULT_LANG = 'en'
 
@@ -34,7 +34,11 @@ AUTHOR_FEED_RSS = None
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 DELETE_OUTPUT_DIRECTORY=True
+PAGE_PATHS=['pages']
+DEFAULT_DATE='fs'
+#STATIC_PATHS=['images']
 ARTICLE_SAVE_AS="{category}/{slug}.html"
+#PAGE_SAVE_AS="{category}/slug.html"
 CATEGORY_SAVE_AS="{slug}/index.html"
 
 THEME ="./theme"

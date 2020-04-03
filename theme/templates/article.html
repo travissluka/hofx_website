@@ -2,5 +2,27 @@
 
 
 {% block content %}
-This is an article
+<header class="mb4">
+  <p class="f6 b mb0 helvetica tracked">
+    HofX
+  </p>
+  <h1 class="f1 mt0 mb0 navy">
+    {{article.title}}
+  </h1>
+
+  <div class="flex flex-wrap mt4">
+    <div class="w-100 w-25-l mh3">
+      <img class="" src="{{SITEURL}}/images/anim/{{article.anim}}">
+    </div>
+    <div class="w-100 w-60-l mw7 mt3">
+      <section class="mid-gray">
+        {{article.content}}
+      </section>
+    </div>
+  </div>
+</header>
+
+
+<hr class="mv5">
+
 {% endblock content %}

@@ -2,17 +2,21 @@
 
 
 {% block content %}
-Main page
 
-
-<nav id="menu"><ul>
-{% for p in pages %}
-<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-{% endfor %}
-
-{% for cat, null in categories %}
-<li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-{% endfor %}
-</ul></nav>
+<div class="w-100">
+  <div class="flex flex-wrap justify-center">
+    
+    {% for cat, arts in categories %}
+      {% for a in arts|sort(attribute="title")%}
+        <div class="mw5">
+          <h2 class="tc mt4 mb0 navy">{{a.title}}</h2>
+          <a href="{{SITEURL}}/{{a.category}}/{{a.url}}">
+            <img class="img-highlight" src="{{SITEURL}}/images/anim/{{a.anim}}">
+          </a>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
 
 {% endblock content %}
