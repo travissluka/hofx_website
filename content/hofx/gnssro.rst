@@ -1,6 +1,8 @@
-:title: gnssro
-:anim: gnssro.gif
+GNSS-RO
+=================
+:images: gnssro
+:variables: refractivity
 
 
-Insert description
+Insert description of observation platform here.
 

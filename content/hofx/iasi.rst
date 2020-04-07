@@ -1,6 +1,7 @@
-:title: IASI-MetOpA
-:anim: iasi-metopa.gif
+IASI MetOp-A
+==================
+:images: iasi-metopa
 
 
-Insert description
+Insert description of observation platform here.
 

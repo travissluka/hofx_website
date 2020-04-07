@@ -4,14 +4,21 @@
 {% block content %}
 
 <div class="w-100">
-  <div class="flex flex-wrap justify-center">
-    
+  <div class="center w-100 ph3 tj mw7">
+    <p class="tc dark-gray">
+      {{WELCOME_DESCRIPTION}}
+    </p>
+    <h4 class="mt4 mb5 tc blue">Click on any platform below to see further diagnostics.</h4>
+  </div>
+
+  <!-- animated locations of all the platforms -->
+  <div class="mt4 flex flex-wrap justify-center">
     {% for cat, arts in categories %}
       {% for a in arts|sort(attribute="title")%}
         <div class="mw5">
           <h2 class="tc mt4 mb0 navy">{{a.title}}</h2>
           <a href="{{SITEURL}}/{{a.category}}/{{a.url}}">
-            <img class="img-highlight" src="{{SITEURL}}/images/anim/{{a.anim}}">
+            <img class="img-highlight" src="{{SITEURL}}/images/{{a.images}}/anim.gif">
           </a>
         </div>
       {% endfor %}

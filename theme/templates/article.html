@@ -2,18 +2,36 @@
 
 
 {% block content %}
+<!-- Modal image popup -->
+<div id="modal" class="modal">  
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modal-img">
+  <div id="modal-bg" class="modal-bg"></div>
+</div>
+
+<!-- A very hacky way of doing breadcrumbs....
+     TODO, figure out correct way to do this in Pelican -->
+<div class="mb4 ">
+  <a class="blue hover-yellow" href="{{SITEURL}}">Realtime HofX</a> > 
+  {{article.title}}
+</div>
+
+
+<!-- Header showing platform description and animated locations -->
 <header class="mb4">
-  <p class="f6 b mb0 helvetica tracked">
-    HofX
-  </p>
+
+  <!-- name of platform -->
   <h1 class="f1 mt0 mb0 navy">
     {{article.title}}
   </h1>
 
   <div class="flex flex-wrap mt4">
+    <!-- animated gif of locations -->
     <div class="w-100 w-25-l mh3">
-      <img class="" src="{{SITEURL}}/images/anim/{{article.anim}}">
+      <img class="" src="{{SITEURL}}/images/{{article.images}}/anim.gif">
     </div>
+
+    <!-- description, pulled from rst file for platform -->
     <div class="w-100 w-60-l mw7 mt3">
       <section class="mid-gray">
         {{article.content}}
@@ -23,6 +41,77 @@
 </header>
 
 
-<hr class="mv5">
+<!-- static plots for the platform -->
+<h2>JEDI HofX</h2>
+{% if article.variables %}  
+  <p class="gray">For each variable and/or satellite channel, shown are the observation counts (left), O-B RMSD (center), and O-B bias (right). <br>
+    Click on any variable name below to expand and view the plots. </p>
+  {% for var in article.variables.split(',') -%}
+    {% set var = var|replace('\n','') %}  
+    <div > 
+      <h2 class="collapsible">{{ var }}</h2>
+
+      <div class="collapsible-content">
+      <div class="flex flex-wrap center justify-center mb5">
+        {% for var2 in ['count', 'ombg_rmsd', 'ombg_bias'] %}
+          <div class="w-33-l w-100">
+            <img id="img-{{var}}-{{var2}}" class="img-highlight" 
+                alt="{{var}} {{var2}}"
+                src="{{SITEURL}}/images/{{article.images}}/{{article.images}}_{{var}}.latlon.{{var2}}.png">
+            <script>          
+              var img = document.getElementById("img-{{var}}-{{var2}}");
+              img.onclick = function(){
+                modal.style.display = "block";
+                modalimg.src = this.src;
+              }
+            </script>
+          </div>
+        {% endfor %}
+      </div>
+      </div>
+    </div>
+  {%- endfor %}
+{% else %}
+  <h3>No additional plots are available</h3>
+{% endif %}
+
+
+<script>
+  // code for modal images
+  var modal = document.getElementById("modal");
+  var modalbg = document.getElementById("modal-bg");
+  var modalimg = document.getElementById("modal-img");
+  var span = document.getElementsByClassName("close")[0];
+  span.onclick = function() {
+    modal.style.display = "none";
+  };
+  modalbg.onclick = function() {
+    modal.style.display = "none";
+  };
+  document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+      modal.style.display = "none";
+    }
+  };
+  
+  // Code for collapsible divs
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  for (i = 0; i < coll.length; i++) {
+    coll[i].setAttribute('data-value','+');
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        this.setAttribute('data-value','+');
+      } else {
+        content.style.display = "block";
+        this.setAttribute('data-value','-');
+      }
+  });
+}
+</script>
 
 {% endblock content %}

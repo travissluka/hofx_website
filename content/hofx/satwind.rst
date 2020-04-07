@@ -1,6 +1,11 @@
-:title: satwind
-:anim: satwind.gif
+satwind
+==================
+:images: satwind
+:variables: 
+  eastward_wind,
+  northward_wind
 
 
-Insert description
+
+Insert description of observation platform here.
 

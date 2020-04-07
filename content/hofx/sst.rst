@@ -1,6 +1,8 @@
-:title: SEVIRI-M08
-:anim: seviri-m08.gif
+SST
+==================
+:images: sst
+:variables: sea_surface_temperature
 
 
-Insert description
+Insert description of observation platform here.
 

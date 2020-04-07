@@ -1,6 +1,7 @@
-:title: aircraft
-:anim: aircraft.gif
+Aircraft 
+====================
+:images: aircraft
+:variables: air_temperature,eastward_wind,northward_wind
 
-
-Insert description
+Insert description of observation platform here.
 

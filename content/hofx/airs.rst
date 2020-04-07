@@ -1,6 +1,7 @@
-:title: AIRS-AQUA
-:anim: airs-aqua.gif
+AIRS-AQUA
+=============================
+:images: airs
 
 
-Insert description
+Insert description of observation platform here.
 

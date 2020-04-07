@@ -1,6 +1,11 @@
-:title: radiosonde
-:anim: radiosonde.gif
+Radiosonde
+================
+:images: radiosonde
+:variables:
+  air_temperature,
+  eastward_wind,
+  northward_wind
 
 
-Insert description
+Insert description of observation platform here.
 
